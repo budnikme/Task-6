@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Fake data generator";
+}
+
+@section Scripts
+{
+    <script>
+        const generateUrl = '@Url.Action("Generate", "Home")'
+        const downloadUrl = '@Url.Action("DownloadCsv", "Home")'
+    </script>
+
+}
+
+<div class="col-md-6 d-inline">
+    <label for="locale" class="form-label">Region</label>
+    <select id="locale" class="form-select d-inline">
+        <option selected value="en_US">United States</option>
+        <option value="pl">Poland</option>
+        <option value="nb_NO">Norway</option>
+    </select>
+    <label for="seed" class="form-label">Seed</label>
+    <input type="text" class="form-control" id="seed" placeholder="Seed" aria-label="Seed">
+    <label for="errorProbability" class="form-label">Number of errors</label>
+    <input type="number" class="form-control" id="errorProbability" placeholder="0" aria-label="Seed">
+    <input type="range" class="form-range" min="0" max="10" step="0.25" value="0" id="errorProbabilitySlider">
+    <button id="block-button" type="button" class="btn btn-primary d-inline" onclick="ChangeSeed()">Random</button>
+    <button type="button" class="btn btn-success" onclick="DownloadCsv()">Download CSV</button>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Random identifier</th>
+        <th scope="col">Full name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+    </tr>
+    </thead>
+    <tbody id="persons">
+    </tbody>
+</table>
