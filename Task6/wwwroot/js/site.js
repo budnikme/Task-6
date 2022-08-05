@@ -33,7 +33,7 @@ async function LoadData() {
 }
 
 $(window).scroll(async function () {
-    if ($(document).height() - $(this).height() == $(this).scrollTop().toFixed()) {
+    if ($(document).height() - window.innerHeight == $(this).scrollTop().toFixed()) {
         await GenerateData();
     }
 });
